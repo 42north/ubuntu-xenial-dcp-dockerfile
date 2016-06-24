@@ -1,11 +1,21 @@
 ### Purpose and Audience
 This image provides a relatively lightweight .NET Core-only runtime environment. The instructions provided pertain to Ubuntu Xenial based developers using VS Code as their primary development environment.
 
+**Docker Pull**
+docker pull 42north/ubuntu-xenial-dcp:latest
+docker pull 42north/ubuntu-xenial-dcp:1.0.0
+
+**Sample Application**
+https://github.com/42north/ubuntu-xenial-dcp-sample-app
+
+**Dockerfile**
+https://github.com/42north/ubuntu-xenial-dcp-dockerfile
+
 #### Docker Compatibility
 The image has been tested with Docker version 1.10.3. However, Ubuntu recommends Docker 1.11.2 or higher.
 
 #### Size
-This image is approximately 382 MB
+This image is approximately 382 MB locally
 
 ### Development Environment
 The development environment should closely mirror the version of the runtime available in the container. Substantial version mismatches, especially within the Framework version will cause deployment failures.
@@ -26,7 +36,7 @@ suod apt install dotnet-sharedframework-microsoft.netcore.app-1.0.0
 
 
 ### .NET Core Project Compatibility
-Applications using this environment should use the following Framework entry in the `project.json`
+Applications using this environment for deployment should use the following Framework entry in the `project.json`
 
 ```json
 "frameworks": {
@@ -72,9 +82,11 @@ The "stock" `project.json` does not come with a "configurations" section. To cre
   }
 }
 ```
-A more complete explanation of some of the newer options can be found here: https://github.com/aspnet/Announcements/issues/175
+A more complete explanation of the latest changes can be found here: https://github.com/aspnet/Announcements/issues/175
 
-The one item of note here is the "outputName" property. This field will dictate the name of the DLL that is generated at compile time. If the name of the application is kept consistent then the core docker file used in deployment can be more easily modified for other projects.
+Also of use is this resource: https://github.com/dotnet/cli/blob/rel/1.0.0/Documentation/specs/runtime-configuration-file.md
+
+The one item of note here is the "outputName" property. This field will dictate the name of the DLL that is generated at compile time.
 
 #### Relocate NuGet packages
 To simplify deployment, locate the NuGet packages in the Project folder using 
