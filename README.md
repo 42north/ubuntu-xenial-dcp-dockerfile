@@ -2,11 +2,13 @@
 This image provides a relatively lightweight .NET Core-only runtime environment. The instructions provided pertain to Ubuntu Xenial based developers using VS Code as their primary development environment.
 
 **Docker Pull**
-docker pull 42north/ubuntu-xenial-dcp:latest
-docker pull 42north/ubuntu-xenial-dcp:1.0.0
+
+`docker pull 42north/ubuntu-xenial-dcp:latest`
+
+`docker pull 42north/ubuntu-xenial-dcp:1.0.0`
 
 **Sample Application**
-https://github.com/42north/ubuntu-xenial-dcp-sample-app
+git clone https://github.com/42north/ubuntu-xenial-dcp-sample-app
 
 **Dockerfile**
 https://github.com/42north/ubuntu-xenial-dcp-dockerfile
